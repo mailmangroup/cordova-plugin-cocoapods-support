@@ -153,7 +153,7 @@ module.exports = function (context) {
                     entry += ", :git => '" + pod.git + "'";
 
                     if (pod.subspecs) {
-						var specs = pod.subspec.split(',').map(function (spec) {
+						var specs = pod.subspecs.split(',').map(function (spec) {
 							return "'" + spec.trim() + "'";
 						});
 						entry += ", :subspecs => [" + specs.join() + "]";
