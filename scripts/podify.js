@@ -151,6 +151,14 @@ module.exports = function (context) {
                     entry += ", '" + pod.version + "'";
                 } else if (pod.git) {
                     entry += ", :git => '" + pod.git + "'";
+
+                    if (pod.subspecs) {
+						var specs = pod.subspec.split(',').map(function (spec) {
+							return "'" + spec.trim() + "'";
+						});
+						entry += ", :subspecs => [" + specs.join() + "]";
+					}
+
                     if (pod.tag) {
                         entry += ", :tag => '" + pod.tag + "'";
                     } else if (pod.branch) {
